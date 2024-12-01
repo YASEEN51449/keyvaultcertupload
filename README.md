@@ -36,7 +36,7 @@
   # Authenticate with Azure using Service Principal
     Connect-AzAccount -ServicePrincipal -TenantId $tenantId -Credential $credentials
   # Set the Azure subscription context
-    Set-AzContext -SubscriptionId '786f8e51-ce3c-4d8e-9866-67444e6601d6'  
+    Set-AzContext -SubscriptionId ''  
   # Your Subscription ID
     displayName: 'Authenticate to Azure'
 
@@ -46,9 +46,9 @@
       secureFile: 'keyvaultvig.pfx'  # Name of the certificate file uploaded in Azure DevOps Secure Files
 
   # Step 3: Install Az PowerShell Module (if it's not already installed in the agent)
-  - powershell: |
-      Install-Module -Name Az -AllowClobber -Force -Scope CurrentUser
-    displayName: 'Install Az PowerShell Module'
+      - powershell: |
+          Install-Module -Name Az -AllowClobber -Force -Scope CurrentUser
+          displayName: 'Install Az PowerShell Module'
 
   # Step 4: Upload the Certificate to Azure Key Vault
     - powershell: |
